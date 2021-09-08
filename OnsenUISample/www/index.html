@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<script src="components/loader.js"></script>
+	<link rel="stylesheet" href="components/loader.css">
+	<link rel="stylesheet" href="css/style.css">
+
+    <script src="js/main.js"></script>
+	<!-- setup: onsenui -->
+	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+	<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+</head>
+
+<body>
+	<!-- page属性に最初に表示するページを指定する. -->
+	<ons-navigator id="navigator" page="mainPage"> </ons-navigator>
+
+	<!-- templateタグの中がページの区切りになってる. -->
+	<template id="mainPage">
+		<ons-page>
+			<ons-toolbar>
+				<div class="center">Onsen UI Sample</div>
+			</ons-toolbar>
+			<ons-list>
+				<ons-list-header>機能</ons-list-header>
+				<ons-list-item tappable onclick="pushPage('buttonSample')">ボタンサンプル</ons-list-item>
+				<ons-list-item tappable onclick="pushPage('noticeSample')">アラートサンプル</ons-list-item>
+			</ons-list>
+		</ons-page>
+	</template>
+
+	<template id="buttonSample">
+		<ons-page>
+			<ons-toolbar>
+				<div class="center">ボタンサンプル</div>
+				<div class="left">
+					<ons-back-button>Back</ons-back-button>
+				</div>
+			</ons-toolbar>
+			<!-- ons-colタグで１行のレイアウトを構築する-->
+			<ons-col style="margin:8px">
+				<ons-button>ボタン</ons-button>
+				<!-- modifierを指定することでカスタマイズ可能.   -->
+				<ons-button modifier="quiet">目立たないボタン</ons-button>
+			</ons-col>
+			<ons-col style="margin:8px">
+				<ons-button modifier="large">大きなボタン</ons-button>
+			</ons-col>
+			<!-- disable属性で活性/非活性を制御できる.-->
+			<ons-col style="margin:8px">
+				<ons-button disabled="true" modifier="large">大きなボタン</ons-button>
+			</ons-col>
+			<ons-fab position="bottom right">
+				<!-- mdのプレフィックスいてるのはマテリアルアイコン.-->
+				<ons-icon icon="md-plus"></ons-icon>
+			</ons-fab>
+		</ons-page>
+	</template>
+
+	<template id="noticeSample">
+		<ons-page>
+			<ons-toolbar>
+				<div class="center">アラートサンプル</div>
+				<div class="left">
+					<ons-back-button>Back</ons-back-button>
+				</div>
+			</ons-toolbar>
+			<ons-button style="margin:8px" onclick="ons.notification.alert('こんにちわ！')">Alert</ons-button>
+			<ons-button style="margin:8px" onclick="ons.notification.confirm('こんにちわ！')">Confirm</ons-button>
+			<ons-button style="margin:8px" onclick="ons.notification.prompt('こんにちわ！何か入力してください！')">Prompt</ons-button>
+			<ons-button style="margin:8px" onclick="ons.notification.toast('こんにちわ！', {timeout: 2000})">Toast</ons-button>
+		</ons-page>
+	</template>
+</body>
+
+</html>
