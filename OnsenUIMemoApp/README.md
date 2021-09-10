@@ -1,1 +1,4 @@
-# monaca-training
+# capture
+
+<img src="capture.gif" width=320/>
+
