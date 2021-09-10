@@ -1,17 +1,55 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-    <script src="components/loader.js"></script>
-    <link rel="stylesheet" href="components/loader.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-    </script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<script src="components/loader.js"></script>
+	<link rel="stylesheet" href="components/loader.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+	<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
+
 <body>
-	<br />
-    This is a template for Monaca app.
+	<!-- animation: "slide", "simpleslide", "lift", "fade", "none" -->
+	<ons-navigator id="navigator" page="home.html" animation="lift"></ons-navigator>
+
+	<template id="home.html">
+		<ons-page id="home">
+			<ons-toolbar>
+				<div class="center">
+					Memo App
+				</div>
+			</ons-toolbar>
+			<ons-list id="memoList">
+			</ons-list>
+			<ons-fab ripple position="bottom right" onclick="pushPage('add.html');">
+				<ons-icon icon="md-plus"></ons-icon>
+			</ons-fab>
+		</ons-page>
+	</template>
+
+	<template id="add.html">
+		<ons-page id="add">
+			<ons-toolbar>
+				<div class="left">
+					<ons-back-button>Back</ons-back-button>
+				</div>
+				<div class="center">
+					Add Item
+				</div>
+			</ons-toolbar>
+
+			<div style="text-align:center; margin-top:30px;">
+				<ons-input id="item" style="width:90%;" modifier="underbar" placeholder="input memo..."></ons-input>
+				<ons-button onclick="addItem();" style="margin-top:30px; width:90%;">Add Item</ons-button>
+			</div>
+		</ons-page>
+	</template>
 </body>
+
 </html>
